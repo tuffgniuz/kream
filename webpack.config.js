@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
     entry: './src/index.js',
@@ -21,5 +22,9 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
         publicPath: '/scripts/'
-    }
+    },
+    mode: 'development',
+    plugins: [
+        new webpack.optimize.ModuleConcatenationPlugin()
+    ]
 }
