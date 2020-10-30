@@ -23,8 +23,8 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'public'),
         publicPath: '/scripts/'
     },
-    mode: 'development',
     plugins: [
         new webpack.optimize.ModuleConcatenationPlugin()
-    ]
+    ],
+    devtool: 'source-map'
 }

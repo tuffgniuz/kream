@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Quicksand:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    overflow: hidden;
+    height: 100vh;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* TYPOGRAPHY */
+
+.brand {
+    font-family: 'Megrim', cursive;
+    font-size: 24px;
+    display: inline;
+}
+
+/* UTILITIES */
+
+.brand-bg {
+    background: #fff;
+    color: #282828;
+}
+
+/* LAYOUT */
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+
+/* COMPONENTS */ 
+
+#stage {
+    position: absolute;
+    z-index: -1;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+
+.hero {
+    position: fixed;
+    z-index: 999999;
+    display: flex;
+    min-height: 100%;
+    width: 100%;
+    background: transparent;
+}
+
+
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    height: 120px;
+    width: 100%;
+}
+
+.navbar nav ul li {
+    border: 1px solid #fff;
+    padding: 10px 25px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.navbar nav a {
+    color: #fff;
+}t
