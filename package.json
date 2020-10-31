@@ -1,0 +1,33 @@
+{
+  "name": "computer-graphics-test-env",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "dependencies": {
+    "babylonjs": "^4.1.0",
+    "babylonjs-loaders": "^4.1.0",
+    "eslint": "^7.12.1",
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "css-loader": "^5.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "start": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manu-febie/comp6505-computer-graphics.git"
+  },
+  "author": "Manu Febie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manu-febie/comp6505-computer-graphics/issues"
+  },
+  "homepage": "https://github.com/manu-febie/comp6505-computer-graphics#readme"
+}

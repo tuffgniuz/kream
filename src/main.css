@@ -1,0 +1,58 @@
+/* RESET */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Zilla+Slab+Highlight:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    min-height: 100vh;
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+}
+
+
+
+/* TYPOGRAPHY */
+
+.brand {
+    font-family: 'Zilla Slab Highlight', cursive;
+}
+
+
+
+/* CANVAS */
+
+#stage {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+/* HERO */
+
+.hero {
+    background-color: transparent;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.hero .navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    width: 100%;
+    padding: 40px 60px;
+    background-color: transparent;
+}
