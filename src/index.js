@@ -11,6 +11,10 @@ const createScene = () => {
     camera.attachControl(canvas)
     const light = new BABYLON.PointLight('light', new BABYLON.Vector3(0,10,0), scene)
 
+    const sneaker = BABYLON.SceneLoader.ImportMesh('sneaker', '', 'sneaker.babylon', scene)
+    console.log(sneaker)
+
+
     return scene
 }
 

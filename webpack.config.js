@@ -8,16 +8,35 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
-                }
+        rules: [
+            {
+                /* BABEL Loader */
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
+                ]
+            },
+            {
+                /* BabylonJS file loader: searches for .babylon file extension and output to public path */
+                test: /\.babylon$/,
+                use: [
+                    {
+                        loader: 'babylon-file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/models/',
+                            publicPath: 'assets/models/'
+                        }
+                    }
+                ]
             }
-        }]
+        ]
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),

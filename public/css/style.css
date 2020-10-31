@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Quicksand:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300&family=Rokkitt:wght@300;400&display=swap');
 
 * {
     margin: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Dosis', sans-serif;
     font-size: 16px;
     letter-spacing: 0.1em;
     overflow: hidden;
@@ -25,8 +25,8 @@ a {
 /* TYPOGRAPHY */
 
 .brand {
-    font-family: 'Megrim', cursive;
-    font-size: 24px;
+    font-family: 'Rokkitt', serif;
+    font-size: 26px;
     display: inline;
 }
 
@@ -80,7 +80,7 @@ a {
 .navbar nav ul li {
     border: 1px solid #fff;
     padding: 10px 25px;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
 }
 
