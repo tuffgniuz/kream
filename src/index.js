@@ -1,6 +1,7 @@
 import { Engine, FreeCamera, HemisphericLight, Scene, SceneLoader, Vector3 } from 'babylonjs';
 import './main.css';
 
+
 const stage = document.querySelector('#stage')
 const engine = new Engine(stage, true)
 
@@ -15,6 +16,9 @@ const createScene = () => {
     // create light
     const hemisphericLight = new HemisphericLight('hemisphericLight', new Vector3(0, 10, 0), scene)
 
+    // import sneaker model
+    const sneaker = SceneLoader.ImportMesh('', './assets/', 'sneaker.babylon', scene);
+
     return scene
 }
 
@@ -24,6 +28,6 @@ engine.runRenderLoop( () => {
     scene.render()
 })
 
-window.addEventListener('resiz3e', () => {
+window.addEventListener('resize', () => {
     engine.resize()
 })

@@ -29,6 +29,8 @@ ul, li {
 
 .brand {
     font-family: 'Zilla Slab Highlight', cursive;
+    color: #edf2f3;
+    padding: 0 25px;
 }
 
 
@@ -36,6 +38,7 @@ ul, li {
 /* CANVAS */
 
 #stage {
+    position: absolute;
     min-height: 100%;
     min-width: 100%;
 }
@@ -43,6 +46,8 @@ ul, li {
 /* HERO */
 
 .hero {
+    position: fixed;
+    z-index: 99999;
     background-color: transparent;
     min-height: 100%;
     min-width: 100%;
@@ -51,8 +56,28 @@ ul, li {
 .hero .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 120px;
     width: 100%;
-    padding: 40px 60px;
+    padding: 40px 80px;
     background-color: transparent;
 }
+
+.hero .navbar nav ul {
+    display: flex;
+}
+
+.navbar nav ul li .nav-item {
+    margin: 0 15px;
+    color: #edf2f3;
+}
+
+.navbar nav ul li .bordered-nav-item {
+    border: 1px solid #edf2f3;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+
+
+
