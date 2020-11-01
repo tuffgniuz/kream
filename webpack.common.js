@@ -15,6 +15,10 @@ module.exports = {
         rules: [
             // 
             {
+                test: /\.babylon$/,
+                use: ['babylon-file-loader']
+            },
+            {
                 test: /\.css$/,
                 use: [
                     'style-loader',
@@ -24,16 +28,6 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: ['html-loader']
-            },
-            {
-                test: /\.babylons$/,
-                use: {
-                    loader: ['babylon-file-loader'],
-                    options: {
-                        name: "[name].[hash].[ext]",
-                        outputPath: "models",
-                    }
-                }
             }
         ]
     }
