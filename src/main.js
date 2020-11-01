@@ -6,8 +6,6 @@ const createScene = () => {
     const scene = new BABYLON.Scene(engine)
 
     const hemisphericLight = new BABYLON.HemisphericLight('hemisphericLight', new BABYLON.Vector3(-10, 20, 10), scene)
-
-    const sneaker = BABYLON.SceneLoader.ImportMesh('', './assets/', 'sneaker2.babylon', scene);
     
     // add camera and attach to scene
     const camera = new BABYLON.ArcRotateCamera('freeCamera',
@@ -17,6 +15,8 @@ const createScene = () => {
             BABYLON.Vector3.Zero(),
             scene)
     camera.attachControl(stage, true)
+
+    const sneaker = BABYLON.SceneLoader.ImportMesh('', './assets/', 'sneaker2.babylon', scene);
     
     return scene
 }

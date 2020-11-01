@@ -52,16 +52,9 @@ ul, li {
 
 /* HERO */
 
-.hero {
-    display: flex;
-    justify-content: space-between;
+.navbar {
     position: fixed;
-    z-index: 1000;
-    min-height: 100%;
-    min-width: 100%;
-}
-
-.hero .navbar {
+    z-index: 9999;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,7 +64,7 @@ ul, li {
     background-color: transparent;
 }
 
-.hero .navbar nav ul {
+.navbar nav ul {
     display: flex;
 }
 
