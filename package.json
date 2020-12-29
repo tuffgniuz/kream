@@ -1,0 +1,31 @@
+{
+  "name": "3D_eCommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babylonjs": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "eslint": "^7.16.0",
+    "tinify": "^1.6.0-beta.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manu-febie/comp6505-computer-graphics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manu-febie/comp6505-computer-graphics/issues"
+  },
+  "homepage": "https://github.com/manu-febie/comp6505-computer-graphics#readme"
+}
