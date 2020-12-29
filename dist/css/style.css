@@ -1,0 +1,155 @@
+/* RESET */
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Quicksand:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    letter-spacing: .1em;
+    overflow: hidden;
+    background-color: #e7e7e7;
+    color: #363636;
+}
+
+a {
+    text-decoration: none;
+    color: #8aabac;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+.btn {
+    background-color: #8aabac;
+    color: #e7e7e7;
+    border-radius: 7px;
+    padding: .5rem 3rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+#stage {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* TYPOGRAPHY */
+
+.brand {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 2em;
+}
+
+
+
+/* NAVIGATION */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+
+.navbar .nav-item {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #8aabac;
+}
+
+
+/* LAYOUT */
+
+.container {
+    min-width: 70%;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+
+/* HERO */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.hero .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.hero .hero-content .hero-title {
+    font-size: 3em;
+    margin: 2.5rem 0;
+}
+
+.hero .hero-content .hero-tagline {
+    font-size: 1.2em;
+    margin: 1rem 0;
+}
+
+.hero .hero-content .price-tag {
+    margin: 2rem 0;
+    font-size: 2.5em;
+    color: #8aabac;
+}
+
+.hero .hero-content .hero-action {
+    padding: 1rem 0;
+} 
+
+/* GRID */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row .col-1 {
+    flex: 0 0  calc(100% / 12 * 1);
+}
+ .row .col-2 {
+    flex: 0 0 calc(100% / 12 * 2);
+ }
+
+.row .col-3 {
+    flex: 0 0 calc(100% / 12 * 3);
+}
+
+.row .col-4 {
+    flex: 0 0 calc(100% / 12 * 4);
+}
+
+.row .col-5 {
+    flex: 0 0 calc(100% / 12 * 5);
+}
+
+.row .col-6 {
+    flex: 0 0 calc(100% / 12 * 6);
+}
+
+.row .col {
+    flex: 0 0 100%;
+}
+
+
+
+/* ABOUT */
+
+#about {
+    height: 50vh;
+}
+
+
