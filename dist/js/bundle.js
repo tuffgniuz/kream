@@ -32,10 +32,12 @@ var stage = document.querySelector('#stage');
 var engine = new BABYLON.Engine(stage, true);
 
 var createScene = function createScene() {
-  var scene = new BABYLON.Scene(engine);
+  var scene = new BABYLON.Scene(engine); // scene.clearColor = new BABYLON.Color3(0, 0, 0);
+
   var light = new BABYLON.HemisphericLight('light', new BABYLON.Vector3(-10, 20, 10), scene);
   var camera = new BABYLON.ArcRotateCamera('camera', BABYLON.Tools.ToRadians(45), BABYLON.Tools.ToRadians(45), 100, BABYLON.Vector3.Zero(), scene);
   camera.attachControl(stage, true);
+  scene.clearColor = new BABYLON.Color4(0, 0, 0, 0.0000000000000001);
   var sneaker = BABYLON.SceneLoader.ImportMesh('', '../assets/', 'nike-air.babylon', scene);
   return scene;
 };
