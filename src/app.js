@@ -17,6 +17,7 @@ const createScene = () => {
         scene)
     camera.attachControl(stage, true)
 
+    // TRANSPARENT CANVAS
     scene.clearColor = new BABYLON.Color4(0,0,0,0.0000000000000001);
 
     const sneaker = BABYLON.SceneLoader.ImportMesh('', '../assets/', 'nike-air.babylon', scene)

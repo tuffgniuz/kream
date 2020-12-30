@@ -69,7 +69,7 @@ ul li {
 /* LAYOUT */
 
 .container {
-    min-width: 70%;
+    min-width: 60%;
     max-width: 90%;
     margin: 0 auto;
 }
