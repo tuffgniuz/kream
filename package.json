@@ -18,7 +18,7 @@
   "scripts": {
     "start": "browserify ./src/app.js > ./dist/js/bundle.js -d",
     "build": "browserify ./src/app.js > ./dist/js/bundle.js -t babelify",
-    "watch": "watchify ./src/app.js -o ./dist/js/bundle.js -d -t babelify"
+    "watch": "watchify ./src/app.js -o ./dist/js/bundle.js -d -v -t babelify"
   },
   "repository": {
     "type": "git",

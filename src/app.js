@@ -19,11 +19,23 @@ const createScene = () => {
     // TRANSPARENT CANVAS
     scene.clearColor = new BABYLON.Color4(0,0,0,0.0000000000000001);
 
-    const animSole = new BABYLON.Animation('animSole', 'position.y', 30, BABYLON.Animation.ANIMATIONTYPE_SIZE,
+    const frameRate = 20;
+
+    const animSole = new BABYLON.Animation('animSole', 'position.y', frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
 
-    const animSoleFoam = new BABYLON.Animation('animSoleFoam', 'position.y', 30, BABYLON.Animation.ANIMATIONTYPE_SIZE,
+    const animSoleFoam = new BABYLON.Animation('animSoleFoam', 'position.y', frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
+
+    const animFabricTrim = new BABYLON.Animation('animFabricTrim', 'position.y', frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+        BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
+
+    const animFabricLiner = new BABYLON.Animation('animFabricLiner', 'position.y', frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+        BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
+
+    const animNikeSwooshRight = new BABYLON.Animation('animNikeSwooshRight', 'position.z', frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+        BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
+
 
     // import sneaker mesh
     const sneaker = BABYLON.SceneLoader.ImportMeshAsync('', '../assets/', 'nike-air.babylon', scene)
@@ -32,42 +44,66 @@ const createScene = () => {
             const airBubbleLeft = scene.getMeshByName('air_bubble_left')
             const sole = scene.getMeshByName('sole')
             const soleFoam = scene.getMeshByName('sole_foam')
+            const fabricTrim = scene.getMeshByName('fabric_trim')
+            const fabricLiner = scene.getMeshByName('fabric_liner')
+            const swooshRight = scene.getMeshByName('swoosh_right')
 
             const soleKeys = []
             const soleFoamKeys = []
+            const fabricLinerKeys = []
+            const fabricTrimKeys = []
+            const swooshRightKeys = []
 
-            soleKeys.push({
-                frame: 0,
-                value: 0,
-            })
+            // animate the sole
+            soleKeys.push({ frame: 0, value: 0 })
+            soleKeys.push({ frame: 15, value: -2 })
+            soleKeys.push({ frame: 30, value: -4 })
 
-            soleKeys.push({
-                frame: 30,
-                value: -10,
-            })
+            // animate the soleFoam
+            soleFoamKeys.push({ frame: 0, value: 0 })
+            soleFoamKeys.push({ frame: 15, value: -1 })
+            soleFoamKeys.push({ frame: 30,value: -2 })
 
-            soleFoamKeys.push({
-                frame: 0,
-                value: 0,
-            })
+            // animate the fabricLiner
+            fabricLinerKeys.push({ frame: 0, value: 0 })
+            fabricLinerKeys.push({ frame: 15, value: 1 })
+            fabricLinerKeys.push({ frame: 30, value: 2 })
 
-            soleFoamKeys.push({
-                frame: 30,
-                value: -5,
-            })
+            // animate the fabricTrim
+            fabricTrimKeys.push({ frame: 0, value: 0 })
+            fabricTrimKeys.push({ frame: 15, value: 2 })
+            fabricTrimKeys.push({ frame: 30, value: 4 })
 
+            // animate the nike swoosh
+            swooshRightKeys.push({ frame: 0, value: 0 })
+            swooshRightKeys.push({ frame: 15, value: -2 })
+            swooshRightKeys.push({ frame: 30, value: -4 })
 
             animSole.setKeys(soleKeys)
             animSoleFoam.setKeys(soleFoamKeys)
+            animFabricLiner.setKeys(fabricLinerKeys)
+            animFabricTrim.setKeys(fabricTrimKeys)
+            animNikeSwooshRight.setKeys(swooshRightKeys)
 
             sole.animations = []
             sole.animations.push(animSole)
+            
             soleFoam.animations = []
             soleFoam.animations.push(animSoleFoam)
+            
+            fabricLiner.animations = []
+            fabricLiner.animations.push(animFabricLiner)
+            fabricTrim.animations = []
+            fabricTrim.animations.push(animFabricTrim)
 
+            swooshRight.animations = []
+            swooshRight.animations.push(animNikeSwooshRight)
 
             scene.beginAnimation(sole, 0, 30)
             scene.beginAnimation(soleFoam, 0, 30)
+            scene.beginAnimation(fabricLiner, 0, 30)
+            scene.beginAnimation(fabricTrim, 0, 30)
+            scene.beginAnimation(swooshRight, 0, 30)
     })
 
     // sneaker.then((result) => {
