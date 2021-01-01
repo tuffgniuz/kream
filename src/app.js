@@ -21,6 +21,7 @@ const createScene = () => {
 
     const frameRate = 20;
 
+    // ANIMATIONS
     const animSole = new BABYLON.Animation('animSole', 'position.y', frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
         BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
 
@@ -99,18 +100,13 @@ const createScene = () => {
             swooshRight.animations = []
             swooshRight.animations.push(animNikeSwooshRight)
 
-            scene.beginAnimation(sole, 0, 30)
-            scene.beginAnimation(soleFoam, 0, 30)
-            scene.beginAnimation(fabricLiner, 0, 30)
-            scene.beginAnimation(fabricTrim, 0, 30)
-            scene.beginAnimation(swooshRight, 0, 30)
+            sneaker.actionManager = new BABYLON.ActionManager(scene)
+
+            // scene.beginAnimation(soleFoam, 0, 30)
+            // scene.beginAnimation(fabricLiner, 0, 30)
+            // scene.beginAnimation(fabricTrim, 0, 30)
+            // scene.beginAnimation(swooshRight, 0, 30)
     })
-
-    // sneaker.then((result) => {
-    //     console.log(scene.getMeshByName('air_bubble_left'))
-    // })
-
-    // sneaker.actionManger = new BABYLON.ActionManager(scene)
 
     return scene
 }
