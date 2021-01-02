@@ -1,6 +1,6 @@
 /* RESET */
 
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Quicksand:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Rajdhani:wght@300;400&display=swap');
 
 * {
     margin: 0;
@@ -9,12 +9,12 @@
 }
 
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     font-size: 16px;
     letter-spacing: .1em;
     overflow: hidden;
-    background-color: #e7e7e7;
-    color: #363636;
+    background-color: #282828;
+    color: #e7e7e7;
 }
 
 a {
@@ -45,10 +45,10 @@ ul li {
 /* TYPOGRAPHY */
 
 .brand {
-    font-family: 'Bungee Shade', cursive;
-    font-size: 2em;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 3em;
+    text-shadow: 3px 3px .1rem #8aabac;
 }
-
 
 
 /* NAVIGATION */
@@ -69,7 +69,7 @@ ul li {
 /* LAYOUT */
 
 .container {
-    min-width: 60%;
+    width: 1280px;
     max-width: 90%;
     margin: 0 auto;
 }
