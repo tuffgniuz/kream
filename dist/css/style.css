@@ -30,10 +30,8 @@ ul li {
 .btn {
     background-color: #8aabac;
     color: #e7e7e7;
-    border-radius: 7px;
-    padding: .5rem 3rem;
     text-transform: uppercase;
-    font-weight: 400;
+    padding: .3rem 2.3rem;
 }
 
 #stage {
@@ -51,105 +49,76 @@ ul li {
 }
 
 
-/* NAVIGATION */
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 0;
-}
-
-.navbar .nav-item {
-    text-transform: uppercase;
-    font-weight: 400;
-    color: #8aabac;
-}
-
-
-/* LAYOUT */
-
-.container {
-    width: 1280px;
-    max-width: 90%;
-    margin: 0 auto;
-}
-
-
-/* HERO */
-
-.hero {
-    display: flex;
-    flex-direction: column;
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
     height: 100vh;
 }
 
-.hero .hero-content {
+
+
+/* SIDEBAR */
+
+.grid > .sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100%;
+    justify-content: space-between;
+    padding: 2rem 3rem;
 }
 
-.hero .hero-content .hero-title {
-    font-size: 3em;
-    margin: 2.5rem 0;
-}
-
-.hero .hero-content .hero-tagline {
-    font-size: 1.2em;
-    margin: 1rem 0;
-}
-
-.hero .hero-content .price-tag {
-    margin: 2rem 0;
-    font-size: 2.5em;
-    color: #8aabac;
-}
-
-.hero .hero-content .hero-action {
+.grid > .sidebar > .sidebar-heading > .tag {
+    margin-top: 2rem;
     padding: 1rem 0;
-} 
+    font-size: .9em;
+}
 
-/* GRID */
+.grid > .sidebar > .sidebar-footer {
+    margin-bottom: 2rem;
+}
 
-.row {
+.grid > .sidebar > .sidebar-footer > .price-tag {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 2.4em;
+    margin: .5rem 0;
+    padding: 1rem 0;
+}
+
+
+
+/* ACTIONBAR */ 
+
+.grid > .action-bar {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    padding: 2rem 3rem;
+    /* font-size: .9em; */
 }
 
-.row .col-1 {
-    flex: 0 0  calc(100% / 12 * 1);
-}
- .row .col-2 {
-    flex: 0 0 calc(100% / 12 * 2);
- }
-
-.row .col-3 {
-    flex: 0 0 calc(100% / 12 * 3);
+.heading {
+    margin: 2rem 0;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 1.5em;
 }
 
-.row .col-4 {
-    flex: 0 0 calc(100% / 12 * 4);
+.nav-item {
+    margin: 1rem 0;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    font-size: .9em;
 }
 
-.row .col-5 {
-    flex: 0 0 calc(100% / 12 * 5);
-}
-
-.row .col-6 {
-    flex: 0 0 calc(100% / 12 * 6);
-}
-
-.row .col {
-    flex: 0 0 100%;
+.navbar-top .nav-item:hover {
+    border-right: 2px solid #8aabac;
 }
 
 
 
-/* ABOUT */
 
-#about {
-    height: 50vh;
-}
+
+
+
 
 

@@ -10,24 +10,67 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <span class="brand">
-                    k.r.e.a.m
-                </span>
+    <div class="grid">
+
+        <div class="sidebar">
+            <div class="sidebar-heading">
+                <h1 class="brand">k.r.e.a.m</h1>
+                <!-- definition -->
+                <div class="tag">
+                    <blockquote>
+                        Stands for "Kickz Rule Everything Around Me".
+                        Pretty much a sneaker heads, hypebeast, etc.
+                        way of life.
+                        <br>
+                        - Urban Dictionary
+                    </blockquote>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <p class="price-tag">$ 199 </p>
+                <a href="" class="btn">Buy</a>
+            </div>
+        </div>
+
+        <canvas id="stage"></canvas>
+
+        <div class="action-bar">
+            <nav class="navbar-top">
+                <h1 class="heading">Personalize</h1>
                 <ul>
-                    <li class="nav-item"><a href="">About</a></li>
+                    <li class="nav-item">
+                        <a href="#" id="fabric-guard">Fabric Guard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="laces">Laces</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="sole">Sole</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="sole-foam">Sole Foam</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="swoosh">Swoosh</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <nav class="navbar-bottom">
+                <h1 class="heading">Controllers</h1>
+                <ul>
+                    <li class="nav-item">
+                        <a href="" id="reset">Reset</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="rotate">Rotate</a>
+                    </li>
                 </ul>
             </nav>
         </div>
-    </header>
 
-    <main>
-        <canvas id="stage"></canvas>
-    </main>
+    </div>
 
-    
     <script src="./js/bundle.js"></script>
 </body>
 </html>
