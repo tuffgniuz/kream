@@ -1,5 +1,5 @@
-import { ArcRotateCamera, Color4, Engine, HemisphericLight, Scene, SceneLoader, Tools, Vector3 } from 'babylonjs'
-import { Sneaker } from './mesh'
+import { ArcRotateCamera, Color3, Color4, Engine, HemisphericLight, Scene, SceneLoader, StandardMaterial, Tools, Vector3 } from 'babylonjs'
+import { Sneaker } from './sneaker'
 
 class App {
 
@@ -30,7 +30,29 @@ class App {
         })
     }
 
+    // createHTMLElements() {
+    //     const sidebarDiv = document.createElement('div')
+    //     const sidebarHeadingDiv = document.createElement('div')
+    //     const brand = document.createElement('h1')
+    //     const tagDiv = document.createElement('div')
+    //     const quote = document.createElement('blockquote')
+    //     const sidebarFooterDiv = document.createElement('div')
+    //     const priceTag = document.createElement('div')
+    //     const button1 = document.createElement('a')
+    // }
+
     goToStage() {
+        // get nav items from the action-bar by #id
+        const fabricGuard = document.querySelector('#fabric-guard')
+        const laces = document.querySelector('#laces')
+        const sole = document.querySelector('#sole')
+        const soleFoam = document.querySelector('#sole-foam')
+        const swoosh = document.querySelector('#swoosh')
+        const resetAnimations = document.querySelector('#reset-animations')
+
+        // materials
+        const safariID = document.querySelector('#safari')
+
         let scene = new Scene(this.engine)  
         const light = new HemisphericLight('light', new Vector3(-10, 20, 10), scene)
         const camera = new ArcRotateCamera('camera', Tools.ToRadians(-60), Tools.ToRadians(60), 70, Vector3.Zero(), scene)
@@ -42,20 +64,10 @@ class App {
         camera.lowerRadiusLimit = 50
         camera.upperRadiusLimit = 120
         camera.useBouncingBehavior = true
-        let cameraRotate = camera.useAutoRotationBehavior = true;
-        
+        camera.useAutoRotationBehavior = true;
 
         // load the sneaker mesh
-        const sneaker = new Sneaker(scene)
-
-        // get nav items from the action-bar by #id
-        const fabricGuard = document.querySelector('#fabric-guard')
-        const laces = document.querySelector('#laces')
-        const sole = document.querySelector('#sole')
-        const soleFoam = document.querySelector('#sole-foam')
-        const swoosh = document.querySelector('#swoosh')
-
-        // const rotate = document.querySelector('#rotate')
+        const sneaker = new Sneaker(scene)     
 
         fabricGuard.addEventListener('click', e => {
             sneaker.animateTop()
@@ -63,43 +75,23 @@ class App {
         })
 
         //--animate sole on click
-        sole.addEventListener('click', e => {
-            sneaker.animateSole()
-        })
+        sole.addEventListener('click', e => sneaker.animateSole() )
 
-        soleFoam.addEventListener('click', e => {
-            sneaker.animateSoleAndSoleFoam()
-        })
+        soleFoam.addEventListener('click', e => sneaker.animateSoleAndSoleFoam() )
 
-        // rotate.addEventListener('click', e => {
-        //     cameraRotate = false
-        // })
+        resetAnimations.addEventListener('click', e => sneaker.resetAllAnimationGroups())
+
+        safariID.addEventListener('click', e => {
+            sneaker.applyTexture(light, '../img/seamless-panther-fur-texture.jpg', 'fabric_heal_guard')
+        })
 
         // set the scene to the start scene
         this.scene = scene;
     }
 
-    customLaces(sneakerMesh) {
-    }
+    // loadScreen() {
 
-    customSole(sneakerMesh) {
-
-    }
-
-    customSoleFoam(sneakerMesh) {
-        /* Get's called when the user clicks on Sole Foam on the action-bar
-         * -> takes a sneaker object as the parameter
-         * -> animates the sole and sole_foam position.y negative direction 
-         **/
-    }
-
-    customSwoosh(sneakerMesh) {
-
-    } 
-
-    loadScreen() {
-
-    }
+    // }
 
 }
 
