@@ -10,45 +10,90 @@
 </head>
 <body>
 
-    <header>
-        <div class="hero container">
-            <nav class="navbar">
-                <span class="brand">3D eCommerce</span>
-                <ul>
-                    <li class="nav-item"><a href="">About</a></li>
-                </ul>
-            </nav>
-            <div class="hero-content">
-                <div class="row">
-                    <div class="col-6">
-                        <h1 class="hero-title">Experience 3D Commerce</h1>
+    <div class="grid">
 
-                        <p class="hero-tagline">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos minus sit aut itaque doloribus similique, aperiam perferendis. Libero, magni deleniti autem architecto alias placeat? Delectus nihil, autem vel voluptatum quam cumque ab ut modi alias est veritatis pariatur officiis quaerat aliquam dignissimos, ex quas, hic possimus minima. Non, eum cumque?
-                        </p>
-
-                        <p class="price-tag">$120</p>
-
-                        <div class="action">
-                            <a href="" class="btn">Buy</a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <canvas id="stage"></canvas>
-                    </div>
+        <div class="sidebar">
+            <div class="sidebar-heading">
+                <h1 class="brand">k.r.e.a.m</h1>
+                <!-- definition -->
+                <div class="tag">
+                    <blockquote>
+                        Stands for "Kickz Rule Everything Around Me".
+                        Pretty much a sneaker heads, hypebeast, etc.
+                        way of life.
+                        <br>
+                        - Urban Dictionary
+                    </blockquote>
                 </div>
             </div>
-        </div>  
-    </header>
-    
-    <main>
-        <section id="about">
-            <div class="container">
-
+            <div class="sidebar-footer">
+                <p class="price-tag">$ 199 </p>
+                <a href="" class="btn">Buy</a>
             </div>
-        </section>
-    </main>
-    
+        </div>
+
+        <canvas id="stage"></canvas>
+
+        <div class="action-bar">
+            <nav class="navbar-top">
+                <h1 class="heading">Controllers</h1>
+                <ul id="controllers">
+                    <li class="nav-item">
+                        <a href="#" id="reset-animations">Reset</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="rotate">Rotate</a>
+                    </li>
+                </ul>
+
+                <h1 class="heading">Personalize</h1>
+                <ul id="personalize">
+                    <li class="nav-item">
+                        <a href="#" id="fabric-guard">Fabric Guard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="laces">Laces</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="sole">Sole</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="sole-foam">Sole Foam</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="swoosh">Swoosh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="box">test</a>
+                    </li>
+                </ul>
+
+                <div id="texture-box">
+                    <h1 class="heading">Textures</h1>
+
+                    <div id="textures">
+                        <div class="thumbnail">
+                            <img src="./img/tiger-fur-texture.jpg" alt="">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="./img/seamless-panther-fur-texture.jpg" alt="">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="./img/denim.jpg" alt="" srcset="">
+                        </div>
+                        <div class="thumbnail"><img src="./img/knit2.jpg" alt="" srcset=""></div>
+                    </div>
+
+                </div>
+            </nav>
+
+            <div class="action-bar-footer">
+                <a href="" class="btn">Save</a>
+            </div>
+        </div>
+
+    </div>
+
     <script src="./js/bundle.js"></script>
 </body>
 </html>

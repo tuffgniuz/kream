@@ -1,35 +1,102 @@
-import * as BABYLON from 'babylonjs'
+import { ArcRotateCamera, Color3, Color4, Engine, HemisphericLight, Scene, SceneLoader, StandardMaterial, Tools, Vector3 } from 'babylonjs'
+import { Sneaker } from './sneaker'
 
-const stage = document.querySelector('#stage')
-const engine = new BABYLON.Engine(stage, true)
+class App {
 
-const createScene = () => {
-    const scene = new BABYLON.Scene(engine)    
-    // scene.clearColor = new BABYLON.Color3(0, 0, 0);
+    constructor() {
+        /*
+         * set initial app properties and start the main function
+         **/
 
-    const light = new BABYLON.HemisphericLight('light', new BABYLON.Vector3(-10, 20, 10), scene)
+        // get the canvas element from the html body
+        this.canvas = document.querySelector("#stage")
+        
+        // initialize the babylon engine and scene
+        this.engine = new Engine(this.canvas, true)
+        this.scene = new Scene(this.engine)
 
-    const camera = new BABYLON.ArcRotateCamera('camera',
-        BABYLON.Tools.ToRadians(45),
-        BABYLON.Tools.ToRadians(45),
-        100,
-        BABYLON.Vector3.Zero(),
-        scene)
-    camera.attachControl(stage, true)
+        this.main()
+    }
 
-    scene.clearColor = new BABYLON.Color4(0,0,0,0.0000000000000001);
+    main() {
+        this.goToStage()
+        
+        this.engine.runRenderLoop(() => {
+            this.scene.render()
+        })
 
-    const sneaker = BABYLON.SceneLoader.ImportMesh('', '../assets/', 'nike-air.babylon', scene)
+        window.addEventListener('resize', () => {
+            this.engine.resize()
+        })
+    }
 
-    return scene
+    // createHTMLElements() {
+    //     const sidebarDiv = document.createElement('div')
+    //     const sidebarHeadingDiv = document.createElement('div')
+    //     const brand = document.createElement('h1')
+    //     const tagDiv = document.createElement('div')
+    //     const quote = document.createElement('blockquote')
+    //     const sidebarFooterDiv = document.createElement('div')
+    //     const priceTag = document.createElement('div')
+    //     const button1 = document.createElement('a')
+    // }
+
+    goToStage() {
+        // get nav items from the action-bar by #id
+        const fabricGuard = document.querySelector('#fabric-guard')
+        const laces = document.querySelector('#laces')
+        const sole = document.querySelector('#sole')
+        const soleFoam = document.querySelector('#sole-foam')
+        const swoosh = document.querySelector('#swoosh')
+        const resetAnimations = document.querySelector('#reset-animations')
+
+        // materials
+        const safariID = document.querySelector('#safari')
+
+        let scene = new Scene(this.engine)  
+        const light = new HemisphericLight('light', new Vector3(-10, 20, 10), scene)
+        const camera = new ArcRotateCamera('camera', Tools.ToRadians(-60), Tools.ToRadians(60), 70, Vector3.Zero(), scene)
+        
+        scene.clearColor = new Color4(0,0,0,0.0000000000000001) 
+        camera.attachControl(this.canvas, true)
+
+        // camera behaviours
+        camera.lowerRadiusLimit = 50
+        camera.upperRadiusLimit = 120
+        camera.useBouncingBehavior = true
+        camera.useAutoRotationBehavior = true;
+
+        // load the sneaker mesh
+        const sneaker = new Sneaker(scene)     
+
+        fabricGuard.addEventListener('click', e => {
+            sneaker.animateTop()
+            sneaker.animateSoleAndSoleFoam()
+        })
+
+        document.querySelector('#box').addEventListener('click', e => {
+            this.loadMaterialBox()
+        })
+
+        //--animate sole on click
+        sole.addEventListener('click', e => sneaker.animateSole() )
+
+        soleFoam.addEventListener('click', e => sneaker.animateSoleAndSoleFoam() )
+
+        resetAnimations.addEventListener('click', e => sneaker.resetAllAnimationGroups())
+
+        // safariID.addEventListener('click', e => {
+        //     sneaker.applyTexture(light, '../img/seamless-panther-fur-texture.jpg', 'fabric_heal_guard')
+        // })
+
+        // set the scene to the start scene
+        this.scene = scene;
+    }
+
+    // loadScreen() {
+
+    // }
+
 }
 
-const scene = createScene()
-
-engine.runRenderLoop( () => {
-    scene.render()
-})
-
-window.addEventListener('resize', () => {
-    engine.resize()
-})
+new App()
