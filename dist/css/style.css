@@ -19,7 +19,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #8aabac;
+    color: #e26a6a;
 }
 
 ul li {
@@ -28,7 +28,7 @@ ul li {
 
 
 .btn {
-    background-color: #8aabac;
+    background-color: #e26a6a;
     color: #e7e7e7;
     text-transform: uppercase;
     padding: .3rem 2.3rem;
@@ -44,7 +44,7 @@ ul li {
 .brand {
     font-family: 'Nanum Pen Script', cursive;
     font-size: 3em;
-    text-shadow: 3px 3px .1rem #8aabac;
+    text-shadow: 3px 3px .1rem #e26a6a;
 }
 
 
@@ -99,7 +99,7 @@ ul li {
 .heading {
     margin: 2rem 0;
     text-transform: uppercase;
-    text-shadow: 2px 2px .1rem #8aabac;
+    text-shadow: 2px 2px .1rem #e26a6a;
     font-weight: 400;
     font-size: 1em;
 }
@@ -112,7 +112,7 @@ ul li {
 }
 
 .navbar-top .nav-item:hover {
-    /* border-right: 1px solid #8aabac; */
+    /* border-right: 1px solid #e26a6a; */
 }
 
 .action-bar {
@@ -121,6 +121,10 @@ ul li {
 
 .action-bar > .action-bar-footer {
     margin-bottom: 2rem;
+}
+
+#texture-box {
+    display: none;
 }
 
 #textures {

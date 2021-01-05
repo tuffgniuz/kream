@@ -30,17 +30,6 @@ class App {
         })
     }
 
-    // createHTMLElements() {
-    //     const sidebarDiv = document.createElement('div')
-    //     const sidebarHeadingDiv = document.createElement('div')
-    //     const brand = document.createElement('h1')
-    //     const tagDiv = document.createElement('div')
-    //     const quote = document.createElement('blockquote')
-    //     const sidebarFooterDiv = document.createElement('div')
-    //     const priceTag = document.createElement('div')
-    //     const button1 = document.createElement('a')
-    // }
-
     goToStage() {
         // get nav items from the action-bar by #id
         const fabricGuard = document.querySelector('#fabric-guard')
@@ -74,28 +63,20 @@ class App {
             sneaker.animateSoleAndSoleFoam()
         })
 
-        document.querySelector('#box').addEventListener('click', e => {
-            this.loadMaterialBox()
+        //--LISTEN TO CLICK TO START ANIMATIONS
+        sole.addEventListener('click', () => { 
+            sneaker.animateSole()
         })
 
-        //--animate sole on click
-        sole.addEventListener('click', e => sneaker.animateSole() )
+        soleFoam.addEventListener('click', () => sneaker.animateSoleAndSoleFoam() )
 
-        soleFoam.addEventListener('click', e => sneaker.animateSoleAndSoleFoam() )
+        swoosh.addEventListener('click', () => sneaker.animateSwooshRightAndLeft() )
 
-        resetAnimations.addEventListener('click', e => sneaker.resetAllAnimationGroups())
-
-        // safariID.addEventListener('click', e => {
-        //     sneaker.applyTexture(light, '../img/seamless-panther-fur-texture.jpg', 'fabric_heal_guard')
-        // })
+        resetAnimations.addEventListener('click', () => sneaker.resetAllAnimationGroups())
 
         // set the scene to the start scene
         this.scene = scene;
     }
-
-    // loadScreen() {
-
-    // }
 
 }
 
