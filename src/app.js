@@ -74,6 +74,10 @@ class App {
             sneaker.animateSoleAndSoleFoam()
         })
 
+        document.querySelector('#box').addEventListener('click', e => {
+            this.loadMaterialBox()
+        })
+
         //--animate sole on click
         sole.addEventListener('click', e => sneaker.animateSole() )
 
@@ -81,9 +85,9 @@ class App {
 
         resetAnimations.addEventListener('click', e => sneaker.resetAllAnimationGroups())
 
-        safariID.addEventListener('click', e => {
-            sneaker.applyTexture(light, '../img/seamless-panther-fur-texture.jpg', 'fabric_heal_guard')
-        })
+        // safariID.addEventListener('click', e => {
+        //     sneaker.applyTexture(light, '../img/seamless-panther-fur-texture.jpg', 'fabric_heal_guard')
+        // })
 
         // set the scene to the start scene
         this.scene = scene;
