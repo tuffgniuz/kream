@@ -15,6 +15,7 @@ const resetAnimations = document.querySelector('#reset-animations')
 
 const healGuardColors = document.querySelector('#heal-guard-colors')
 const toeguardColors = document.querySelector('#toe-guard-colors')
+const swooshColors = document.querySelector('#swoosh-colors')
 // const tigerFur = document.querySelector('#tiger-fur')
 // const pantherFur = document.querySelector('#panther-fur')
 // const denim = document.querySelector('#denim')
@@ -78,9 +79,11 @@ class App {
             
 
             // toeGuardColors.style.display = 'hidden'
-            toeguardColors.style.display = 'hidden'
+            toeguardColors.style.display = 'none'
+            swooshColors.style.display = 'none'
+            toeguardColors.style.display = 'none'
             healGuardColors.style.display = 'block'
-            toeguardColors.style.display = 'hidden'
+
 
             const pomegranate =  document.querySelector('#pomegranate-healguard')
             const shakespeare = document.querySelector('#shakespeare-healguard')
@@ -112,12 +115,21 @@ class App {
             healGuardColors.style.display = 'none'
             toeguardColors.style.display = 'block'
             healGuardColors.style.display = 'none'
+            swooshColors.style.display = 'none'
 
             const pomegranate =  document.querySelector('#pomegranate-toeguard')
             const shakespeare = document.querySelector('#shakespeare-toeguard')
+            const hazeGreen = document.querySelector('#green-haze-toeguard')
+            const plum = document.querySelector('#plum-toeguard')
+            const confetti = document.querySelector('#confetti-toeguard')
+            const tahitiGold = document.querySelector('#tahiti-gold-toeguard')
 
-            textureManager.pomegranateToeGuard(pomegranate, scene)
-            textureManager.shakespeareToeGuard(shakespeare, scene)
+            textureManager.applyPomegranata(pomegranate, 'fabric_toe_guard', scene)
+            textureManager.applyShakespeare(shakespeare, 'fabric_toe_guard', scene)
+            textureManager.applyHaze(hazeGreen,          'fabric_toe_guard', scene)
+            textureManager.applyPlum(plum,               'fabric_toe_guard', scene)
+            textureManager.applyConfetti(confetti,       'fabric_toe_guard', scene)
+            textureManager.applyTahitiGold(tahitiGold,   'fabric_toe_guard', scene)
         })
 
         sole.addEventListener('click', () => {
@@ -136,9 +148,26 @@ class App {
         rightSwoosh.addEventListener('click', () => {
             sneaker.animateSwooshRight()
 
-            // textureManager.pomegranateRightSwoosh(pomegranate, scene)
-            // textureManager.shakespeareRightSwoosh(shakespeare, scene)
 
+            healGuardColors.style.display = 'none'
+            toeguardColors.style.display = 'none'
+            healGuardColors.style.display = 'none'
+            swooshColors.style.display = 'block'
+
+
+            const pomegranate =  document.querySelector('#pomegranate-swoosh')
+            const shakespeare = document.querySelector('#shakespeare-swoosh')
+            const hazeGreen = document.querySelector('#haze-swoosh')
+            const plum = document.querySelector('#plum-swoosh')
+            const confetti = document.querySelector('#confetti-swoosh')
+            const tahitiGold = document.querySelector('#tahiti-gold-swoosh')
+
+            textureManager.applyPomegranata(pomegranate, 'swoosh_right', scene)
+            textureManager.applyShakespeare(shakespeare, 'swoosh_right', scene)
+            textureManager.applyHaze(hazeGreen,          'swoosh_right', scene)
+            textureManager.applyPlum(plum,               'swoosh_right', scene)
+            textureManager.applyConfetti(confetti,       'swoosh_right', scene)
+            textureManager.applyTahitiGold(tahitiGold,   'swoosh_right', scene)
         })
         
 

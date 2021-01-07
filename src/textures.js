@@ -1,4 +1,4 @@
-import { Color3, StandardMaterial, Texture} from "babylonjs";
+import { Color3, StandardMaterial, Texture } from "babylonjs";
 
 export class TextureManager {
 
@@ -6,10 +6,10 @@ export class TextureManager {
         this.scene = scene 
     }
 
-    pomegranateHealGuard(selector, scene) {
+    applyPomegranata(selector, meshName, scene) {
         selector.addEventListener('click', () => {
 
-            const fabricHealGuard = scene.getMeshByName('fabric_heal_guard')
+            const fabricHealGuard = scene.getMeshByName(meshName)
             const material = new StandardMaterial('material', scene)
             material.diffuseColor = new Color3(2.4, 0.52, 0.52)
 
@@ -17,9 +17,9 @@ export class TextureManager {
         })
     }
 
-    shakespeareHealGuard(selector, scene) {
+    applyShakespeare(selector, meshName, scene) {
         selector.addEventListener('click', () => {
-            const mesh = scene.getMeshByName('fabric_heal_guard')
+            const mesh = scene.getMeshByName(meshName)
             const material = new StandardMaterial('material', scene)
             material.diffuseColor = new Color3(.82, 1.79, 2.17)
 
@@ -28,91 +28,50 @@ export class TextureManager {
         })
     }
 
-    pomegranateToeGuard(selector, scene) {
+    applyHaze(selector, meshName, scene) {
         selector.addEventListener('click', () => {
 
-            const mesh = scene.getMeshByName('fabric_toe_guard')
+            const mesh = scene.getMeshByName(meshName)
             const material = new StandardMaterial('material', scene)
-            material.diffuseColor = new Color3(2.4, 0.52, 0.52)
+            material.diffuseColor = new Color3(1, 1.52, 1.17)
 
             mesh.material = material
         })
     }
 
-    shakespeareToeGuard(selector, scene) {
+    applyPlum(selector, meshName, scene) {
         selector.addEventListener('click', () => {
-            const fabricHealGuard = scene.getMeshByName('fabric_toe_guard')
+
+            const mesh = scene.getMeshByName(meshName)
             const material = new StandardMaterial('material', scene)
-            material.diffuseColor = new Color3(.82, 1.79, 2.17)
+            material.diffuseColor = new Color3(1.45, .61, 1.36)
 
-            fabricHealGuard.material = material
-
-        })
-    }
-
-    pomegranateSole(selector, scene) {
-        selector.addEventListener('click', () => {
-            const soleMesh = scene.getMeshByName('sole')
-            const material = new StandardMaterial('material', scene)
-            material.diffuseColor = new Color3(2.4, 0.52, 0.52)
-            soleMesh.material = material
-        })
-    }
-
-    pomegranateRightSwoosh(selector, scene) {
-        selector.addEventListener('click', () => {
-            const mesh = scene.getMeshByName('swoosh_right')
-            const material = new StandardMaterial('material', scene)
-            material.diffuseColor = new Color3(2.4, 0.52, 0.52)
             mesh.material = material
         })
 
     }
 
-    shakespeareRightSwoosh(selector, scene) {
+    applyConfetti(selector, meshName, scene) {
         selector.addEventListener('click', () => {
-            const mesh = scene.getMeshByName('swoosh_right')
+
+            const mesh = scene.getMeshByName(meshName)
             const material = new StandardMaterial('material', scene)
-            material.diffuseColor = new Color3(.82, 1.79, 2.17)
+            material.diffuseColor = new Color3(2.33, 2.12, .96)
+
             mesh.material = material
         })
 
     }
 
-    shakespeareSole(selector, scene) {
+    applyTahitiGold(selector, meshName, scene) {
         selector.addEventListener('click', () => {
-            const soleMesh = scene.getMeshByName('sole')
+
+            const mesh = scene.getMeshByName(meshName)
             const material = new StandardMaterial('material', scene)
-            material.diffuseColor = new Color3(.82, 1.79, 2.17)
+            material.diffuseColor = new Color3(2.32, 1.26, .4)
 
-            soleMesh.material = material
-
+            mesh.material = material
         })
-    }
 
-
-
-    applyTigerFur(material, mesh) {
-        material.diffuseTexture = new Texture('./img/tiger-fur-texture.jpg', this.scene) 
-        mesh.material = material
-    }
-
-    applyPantherFur(material, mesh) {
-        material.diffuseTexture = new Texture('./img/seamless-panther-fur-texture.jpg', this.scene)
-        mesh.material = material
-    }
-
-    applyDenim(material, mesh) {
-        material.diffuseTexture = new Texture('./img/denim.jpg', this.scene)
-        mesh.material = material
-    }
-
-    applyKnit(material, mesh) {
-        material.diffuseTexture = new Texture('./img/knit2.jpg', this.scene)
-        mesh.material = material
-    }
-
-    applyTigerFurToHealGuard() {
-        
     }
 }

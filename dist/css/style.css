@@ -36,6 +36,7 @@ ul li {
 
 #stage {
     width: 100%;
+    height: 100vh;
 }
 
 
@@ -152,33 +153,43 @@ ul li {
 }
 
 #heal-guard-colors,
-#toe-guard-colors {
+#toe-guard-colors,
+#swoosh-colors {
     display: none;
 }
 
 #pomegranate-healguard,
-#pomegranate-toeguard {
+#pomegranate-toeguard, 
+#pomegranate-swoosh {
     background-color: rgb(240, 52, 52);
 }
 
 #shakespeare-healguard,
-#shakespeare-toeguard {
+#shakespeare-toeguard,
+#shakespeare-swoosh {
     background-color: rgb(82, 179, 217);
 }
 
-#green-haze {
+#haze-swoosh,
+#haze-healguard,
+#green-haze-toeguard,
+#haze-sole,
+#haze-solefoam {
     background-color: rgb(1, 152, 117);
 }
 
-#plum {
+#plum-swoosh,
+#plum-toeguard {
     background-color: rgb(145, 61, 136);
 }
 
-#confetti {
+#confetti-swoosh,
+#confetti-toeguard {
     background-color: rgb(233, 212, 96);
 }
 
-#tahiti-gold {
+#tahiti-gold-swoosh,
+#tahiti-gold-toeguard{
     background-color: rgba(232, 126, 4, 1);
 }
 
