@@ -1,5 +1,4 @@
-import { Animation, AnimationGroup, Color3, SceneLoader, StandardMaterial, Texture } from 'babylonjs'
-import runOnce from './decorators'
+import { Animation, AnimationGroup, SceneLoader } from 'babylonjs'
 
 export class Sneaker {
     /*
@@ -18,20 +17,21 @@ export class Sneaker {
         this.scene = scene
 
         this.sneaker = new SceneLoader.ImportMeshAsync('', '../assets/', 'nike-air.babylon', this.scene)
-        this.material = new StandardMaterial('material', this.scene)
 
-        this.frameRate = 30 // default frame rate for mesh animations
+        this.frameRate = 30 // default frame rate for mesh animation
 
         //--animation properties
         this.animatePositionX = new Animation('animatePositionX', 'position.x', this.frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
         this.animatePositionYNegativeDirection = new Animation('animatePositionYNegativeDirection', 'position.y', this.frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
-        this.animatePositionYNegativeDirectionPlusDirection = new Animation('animatePositionYNegativeDirection', 'position.y', this.frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
+        this.animatePositionYPositionDirection = new Animation('animatePositionYNegativeDirection', 'position.y', this.frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
         this.animatePositionZ = new Animation('animatePositionZ', 'position.z', this.frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
         
         //--animation groups
         this.soleAndSoleFoamAnimationGroup = new AnimationGroup('soleAndSoleFoamAnimationGroup')
         this.sneakerTopAnimationGroup = new AnimationGroup('sneakerTopAnimationGroup')
-        this.swooshRightAndLeftAnimationGroup = new AnimationGroup('swooshRightAndLeftAnimationGroup')
+        this.swooshRightGroup = new AnimationGroup('swooshRightAndLeftAnimationGroup')
+        this.soleGroup = new AnimationGroup('soleGroup')
+        this.toeGuardGroup = new AnimationGroup('toeGuardGroup')
     }
 
     resetAllAnimationGroups() {
@@ -41,65 +41,89 @@ export class Sneaker {
 
         this.soleAndSoleFoamAnimationGroup.reset()
         this.sneakerTopAnimationGroup.reset()
-        this.swooshRightAndLeftAnimationGroup.reset()
+        this.swooshRightGroup.reset()
+        this.soleGroup.reset()
+        this.toeGuardGroup.reset()
     }
 
     // @runOnce
     animateTop() {
 
         this.sneaker.then((result) => {
-            const eyeLetsRight = this.scene.getMeshByName('eyelets_right')
-            const eyeLetsLeft = this.scene.getMeshByName('eyelets_left')
-            const laces = this.scene.getMeshByName('laces')
-            const fabricLiner = this.scene.getMeshByName('fabric_liner')
-            const fabricUpperMid = this.scene.getMeshByName('fabric_upper_mid')
-            const fabricUpperMid2Right = this.scene.getMeshByName('fabric_upper_mid2_right')
-            const fabricMainRight = this.scene.getMeshByName('fabric_main_right')
-            const fabricMainLeft = this.scene.getMeshByName('fabric_main_left')
-            const fabricTrim = this.scene.getMeshByName('fabric_trim')
-            const fabricTrimFrontRight = this.scene.getMeshByName('fabric_trim_front_right')
-            const fabricTrimFrontLeft = this.scene.getMeshByName('fabric_trim_front_left')
-            const fabricHealUpper = this.scene.getMeshByName('fabric_heal_upper')
-            const fabricFrontUpper = this.scene.getMeshByName('fabric_front_upper')
-            const swooshRight = this.scene.getMeshByName('swoosh_right')
-            const swooshLeft = this.scene.getMeshByName('swoosh_left')
-            const tongueFront = this.scene.getMeshByName('tongue_front')
-            const tongueLabel = this.scene.getMeshByName('tongue_label')
-            const tongueTop = this.scene.getMeshByName('tongue_top')
+            // const eyeLetsRight = this.scene.getMeshByName('eyelets_right')
+            // const eyeLetsLeft = this.scene.getMeshByName('eyelets_left')
+            // const laces = this.scene.getMeshByName('laces')
+            // const fabricLiner = this.scene.getMeshByName('fabric_liner')
+            // const fabricUpperMid = this.scene.getMeshByName('fabric_upper_mid')
+            // const fabricUpperMid2Right = this.scene.getMeshByName('fabric_upper_mid2_right')
+            // const fabricMainRight = this.scene.getMeshByName('fabric_main_right')
+            // const fabricMainLeft = this.scene.getMeshByName('fabric_main_left')
+            // const fabricTrim = this.scene.getMeshByName('fabric_trim')
+            // const fabricTrimFrontRight = this.scene.getMeshByName('fabric_trim_front_right')
+            // const fabricTrimFrontLeft = this.scene.getMeshByName('fabric_trim_front_left')
+            // const fabricHealUpper = this.scene.getMeshByName('fabric_heal_upper')
+            const fabricHealGuard = this.scene.getMeshByName('fabric_heal_guard')
+            // const fabricFrontUpper = this.scene.getMeshByName('fabric_front_upper')
+            // const swooshRight = this.scene.getMeshByName('swoosh_right')
+            // const swooshLeft = this.scene.getMeshByName('swoosh_left')
+            // const tongueFront = this.scene.getMeshByName('tongue_front')
+            // const tongueLabel = this.scene.getMeshByName('tongue_label')
+            // const tongueTop = this.scene.getMeshByName('tongue_top')
 
             const stitching = this.scene.getMeshByName('stitching')
 
             stitching.setEnabled(false)
 
-            const keys = []
+            // const keys = []
+            const xKeys = []
 
-            keys.push({ frame: 0, value: 0 })
-            keys.push({ frame: 15, value: 1 })
-            keys.push({ frame: 30, value: 2 })
+            // keys.push({ frame: 0, value: 0 })
+            // keys.push({ frame: 15, value: 1 })
+            // keys.push({ frame: 30, value: 2 })
+            xKeys.push({ frame: 0, value: 0 })
+            xKeys.push({ frame: 15, value: -1 })
+            xKeys.push({ frame: 30, value: -2 })
 
-            this.animatePositionYNegativeDirectionPlusDirection.setKeys(keys)
+            // this.animatePositionYPositionDirection.setKeys(keys)
+            this.animatePositionX.setKeys(xKeys)
             
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, eyeLetsRight)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, eyeLetsLeft)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, laces)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricLiner)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricMainRight)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricMainLeft)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricUpperMid)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricUpperMid2Right)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricTrim)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricTrimFrontRight)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricTrimFrontLeft)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricHealUpper)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, fabricFrontUpper)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, swooshRight)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, swooshLeft)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, tongueFront)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, tongueLabel)
-            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYNegativeDirectionPlusDirection, tongueTop)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, eyeLetsRight)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, eyeLetsLeft)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, laces)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricLiner)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricMainRight)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricMainLeft)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricUpperMid)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricUpperMid2Right)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricTrim)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricTrimFrontRight)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricTrimFrontLeft)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricHealUpper)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, fabricFrontUpper)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, swooshRight)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, swooshLeft)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, tongueFront)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, tongueLabel)
+            // this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionYPositionDirection, tongueTop)
+            this.sneakerTopAnimationGroup.addTargetedAnimation(this.animatePositionX, fabricHealGuard)
 
             this.sneakerTopAnimationGroup.play()
         })
+    }
+
+    animateToeGuard() {
+        const toeGuard = this.scene.getMeshByName('fabric_toe_guard')
+        
+        const keys = []
+
+        keys.push({ frame: 0, value: 0 })
+        keys.push({ frame: 15, value: 1})
+        keys.push({ frame: 30, value: 2})
+
+        this.animatePositionX.setKeys(keys)
+
+        this.toeGuardGroup.addTargetedAnimation(this.animatePositionX, toeGuard)
+        this.toeGuardGroup.play()
     }
 
     animateSole() {
@@ -117,10 +141,9 @@ export class Sneaker {
 
                 this.animatePositionYNegativeDirection.setKeys(keys)
 
-                sole.animations = []
-                sole.animations.push(this.animatePositionYNegativeDirection)
+                this.soleGroup.addTargetedAnimation(this.animatePositionYNegativeDirection, sole)
 
-                this.scene.beginAnimation(sole, 0, this.frameRate)
+                this.soleGroup.play()
             })    
     }
 
@@ -190,12 +213,12 @@ export class Sneaker {
     //     }
     // }
 
-    animateSwooshRightAndLeft() {
+    animateSwooshRight() {
         /* Animates the 'swoosh_right' mesh in the z position.
          */
         this.sneaker.then((result) => {
             const swooshRight = this.scene.getMeshByName('swoosh_right')
-            const swooshLeft = this.scene.getMeshByName('swoosh_left')
+            // const swooshLeft = this.scene.getMeshByName('swoosh_left')
             
             const keys = []
 
@@ -205,24 +228,10 @@ export class Sneaker {
 
             this.animatePositionZ.setKeys(keys)
 
-            this.swooshRightAndLeftAnimationGroup.addTargetedAnimation(this.animatePositionZ, swooshRight)
-            this.swooshRightAndLeftAnimationGroup.addTargetedAnimation(this.animatePositionZ, swooshLeft)
+            this.swooshRightGroup.addTargetedAnimation(this.animatePositionZ, swooshRight)
+            // this.swooshRightAndLeftAnimationGroup.addTargetedAnimation(this.animatePositionZ, swooshLeft)
 
-            this.swooshRightAndLeftAnimationGroup.play()
-        })
-    }
-
-    applyTexture(light, texture, mesh) {
-        /* Takes (1) light of the scene, (2) texture to be applied and (3) the mesh the texture needs to be applied to
-         */
-        light.diffuse = new Color3(1, 1, 1)
-
-        this.material.diffuseTexture = new Texture(texture, this.scene)
-
-        this.sneaker.then((result) => { 
-            const meshName = this.scene.getMeshByName(mesh)
-
-            meshName.material = this.material
+            this.swooshRightGroup.play()
         })
     }
 

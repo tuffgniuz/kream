@@ -1,5 +1,27 @@
-import { ArcRotateCamera, Color3, Color4, Engine, HemisphericLight, Scene, SceneLoader, StandardMaterial, Tools, Vector3 } from 'babylonjs'
+import { ArcRotateCamera, Color3, Color4, Engine, HemisphericLight, Scene, SceneLoader, StandardMaterial, Texture, Tools, Vector3 } from 'babylonjs'
 import { Sneaker } from './sneaker'
+import { TextureManager } from './textures'
+
+
+const healGuard = document.querySelector('#heal-guard')
+const toeGuard = document.querySelector('#toe-guard')
+const laces = document.querySelector('#laces')
+const sole = document.querySelector('#sole')
+const soleFoam = document.querySelector('#sole-foam')
+const textureBox = document.querySelector('#texture-box')
+const rightSwoosh = document.querySelector('#right-swoosh')
+const leftSwoosh = document.querySelector('#left-swoosh')
+const resetAnimations = document.querySelector('#reset-animations')
+
+const healGuardColors = document.querySelector('#heal-guard-colors')
+const toeguardColors = document.querySelector('#toe-guard-colors')
+// const tigerFur = document.querySelector('#tiger-fur')
+// const pantherFur = document.querySelector('#panther-fur')
+// const denim = document.querySelector('#denim')
+// const knit = document.querySelector('#knit')
+
+// const pomegranate = document.querySelector('#pomegranate')
+// const shakespeare = document.querySelector('#shakespeare')
 
 class App {
 
@@ -30,18 +52,9 @@ class App {
         })
     }
 
+    materialPicker() {}
+    
     goToStage() {
-        // get nav items from the action-bar by #id
-        const fabricGuard = document.querySelector('#fabric-guard')
-        const laces = document.querySelector('#laces')
-        const sole = document.querySelector('#sole')
-        const soleFoam = document.querySelector('#sole-foam')
-        const swoosh = document.querySelector('#swoosh')
-        const resetAnimations = document.querySelector('#reset-animations')
-
-        // materials
-        const safariID = document.querySelector('#safari')
-
         let scene = new Scene(this.engine)  
         const light = new HemisphericLight('light', new Vector3(-10, 20, 10), scene)
         const camera = new ArcRotateCamera('camera', Tools.ToRadians(-60), Tools.ToRadians(60), 70, Vector3.Zero(), scene)
@@ -57,27 +70,83 @@ class App {
 
         // load the sneaker mesh
         const sneaker = new Sneaker(scene)     
+        const textureManager = new TextureManager(scene)
 
-        fabricGuard.addEventListener('click', e => {
+        healGuard.addEventListener('click', () => {
+            // sneaker.animateSoleAndSoleFoam()
             sneaker.animateTop()
-            sneaker.animateSoleAndSoleFoam()
+            
+
+            // toeGuardColors.style.display = 'hidden'
+            toeguardColors.style.display = 'hidden'
+            healGuardColors.style.display = 'block'
+            toeguardColors.style.display = 'hidden'
+
+            const pomegranate =  document.querySelector('#pomegranate-healguard')
+            const shakespeare = document.querySelector('#shakespeare-healguard')
+
+            textureManager.pomegranateHealGuard(pomegranate, scene)
+            textureManager.shakespeareHealGuard(shakespeare, scene)
+
+            // pomegranate.addEventListener('click', function () {
+                
+            //     const mesh1 = scene.getMeshByName('fabric_heal_guard')
+            //     const myMaterial = new StandardMaterial('myMaterial', scene)
+            //     myMaterial.diffuseColor = new Color3(2.4, .52, .52)
+            //     mesh1.material = myMaterial
+            //     // scene.dispose()
+            // })
+            
+
+            // shakespeare.addEventListener('click', function () {
+            //     const mesh2 = scene.getMeshByName('fabric_heal_guard')
+            //     const myShakespeare1 = new StandardMaterial('myMaterial', scene)
+            //     myShakespeare1.diffuseColor = new Color3(.82, 1.79, 2.17)
+            //     mesh2.material = myShakespeare1
+            // }) 
         })
 
-        //--LISTEN TO CLICK TO START ANIMATIONS
-        sole.addEventListener('click', () => { 
+        toeGuard.addEventListener('click', () => {
+            sneaker.animateToeGuard()
+
+            healGuardColors.style.display = 'none'
+            toeguardColors.style.display = 'block'
+            healGuardColors.style.display = 'none'
+
+            const pomegranate =  document.querySelector('#pomegranate-toeguard')
+            const shakespeare = document.querySelector('#shakespeare-toeguard')
+
+            textureManager.pomegranateToeGuard(pomegranate, scene)
+            textureManager.shakespeareToeGuard(shakespeare, scene)
+        })
+
+        sole.addEventListener('click', () => {
             sneaker.animateSole()
+            
+            // textureManager.pomegranateSole(pomegranate, scene)
+            // textureManager.shakespeareSole(shakespeare, scene)
+
         })
 
-        soleFoam.addEventListener('click', () => sneaker.animateSoleAndSoleFoam() )
+        soleFoam.addEventListener('click', () => {
+            sneaker.animateSoleAndSoleFoam()
 
-        swoosh.addEventListener('click', () => sneaker.animateSwooshRightAndLeft() )
+        })
 
-        resetAnimations.addEventListener('click', () => sneaker.resetAllAnimationGroups())
+        rightSwoosh.addEventListener('click', () => {
+            sneaker.animateSwooshRight()
 
-        // set the scene to the start scene
-        this.scene = scene;
+            // textureManager.pomegranateRightSwoosh(pomegranate, scene)
+            // textureManager.shakespeareRightSwoosh(shakespeare, scene)
+
+        })
+        
+
+        resetAnimations.addEventListener('click', () => sneaker.resetAllAnimationGroups()) 
+
+        this.scene = scene; 
     }
-
+    
 }
 
 new App()
